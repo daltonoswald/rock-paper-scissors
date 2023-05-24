@@ -23,30 +23,30 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
         playerScore++;
         // return "You win!"
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'rock' && computerSelection === 'paper'){
         computerScore++;
         // return "You lose!";
-        console.log("You lose! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'paper' && computerSelection === 'rock'){
         playerScore++;
         // return "You win!";
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
         computerScore++;
         // return "You lose!";
-        console.log("You lose! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore++;
         // return "You win!";
-        console.log("You win! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore++;
         // return "You lose!";
-        console.log("You lose! " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else {
         computerScore++;
-        // return "Invalad choice! You lose this round by default. "
+        // return "Invalid choice! You lose this round by default. "
         console.log("Invalid choice! You lose this round by default. The score is " + playerScore + " to " + computerScore);
     }
 }
