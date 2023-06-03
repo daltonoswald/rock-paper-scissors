@@ -1,12 +1,18 @@
-function getPlayerChoice() {
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
-    if (playerSelection == null || playerSelection == "") {
-        alert("By not inputting an option you have forfeited this round!");
-        return;
-    }
-    playerSelection = playerSelection.toLowerCase();
-    return playerSelection;
-}
+// function getPlayerChoice() {
+//     let playerSelection = prompt("Rock, Paper, or Scissors?");
+//     if (playerSelection == null || playerSelection == "") {
+//         alert("By not inputting an option you have forfeited this round!");
+//         return;
+//     }
+//     playerSelection = playerSelection.toLowerCase();
+//     return playerSelection;
+// }
+
+const gameOver = () => {
+    document.getElementById("rock").disabled = true;
+    document.getElementById("paper").disabled = true;
+    document.getElementById("scissors").disabled = true;
+};
 
 function getComputerChoice() {
     const options = ['rock', 'paper', 'scissors'];
@@ -16,48 +22,75 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
-function playRound(playerSelection, computerSelection) {
+// const btnRock = document.querySelector('#btnRock');
+// btnRock.addEventListener('click', playRound);
+
+// const btnPaper = document.querySelector('#btnPaper');
+// btnPaper.addEventListener('click', playRound);
+
+// const btnScissors = document.querySelector('#btnScissors');
+// btnScissors.addEventListener('click', playRound);
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id);
+    });
+});
+
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
+    let results = "";
     if (playerSelection === computerSelection) {
-        console.log("It's a tie! The score is " + playerScore + " to " + computerScore)
+        results = ("It's a tie! You both selected " + computerSelection + ". The score is " + playerScore + " to " + computerScore)
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
         playerScore++;
-        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'rock' && computerSelection === 'paper'){
         computerScore++;
-        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'paper' && computerSelection === 'rock'){
         playerScore++;
-        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
         computerScore++;
-        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore++;
-        console.log("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You win, " + playerSelection + " beats " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore++;
-        console.log("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
+        results = ("You lose, " + playerSelection + " loses to " + computerSelection + ". The score is " + playerScore + " to " + computerScore);
     } else {
         computerScore++;
-        console.log("Invalid choice! You lose this round by default. The score is " + playerScore + " to " + computerScore);
+        results = ("Invalid choice! You lose this round by default. The score is " + playerScore + " to " + computerScore);
     }
+    if (playerScore == 5) {
+        results = ("You won the game, " + playerScore + " to " + computerScore + "! Please refresh to play again!");
+        gameOver();
+    } else if (computerScore == 5) {
+        results = ("You lost the game, " + playerScore + " to " + computerScore + "! Please refresh to play again!");
+        gameOver();
+    }
+    document.getElementById('results').innerHTML = results;
 }
 
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        const playerSelection = getPlayerChoice();
-        // const playerSelection = 'rock'
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
 
-    if (playerScore > computerScore){
-        console.log("You beat the computer " + playerScore + " to " + computerScore);
-    } else if (playerScore < computerScore){
-        console.log("You lost to the computer " + playerScore + " to " + computerScore);
-    } else {
-        console.log("You tied the computer " + playerScore + " to " + computerScore);
-    }
-}
+// function game() {
+//     // for (let i = 1; i <= 5; i++) {
+//         // const playerSelection = getPlayerChoice();
+//         // const playerSelection = 'rock'
+//         const computerSelection = getComputerChoice();
+//         playRound(playerSelection, computerSelection);
+//     // }
 
-game();
+//     if (playerScore > computerScore){
+//         console.log("You beat the computer " + playerScore + " to " + computerScore);
+//     } else if (playerScore < computerScore){
+//         console.log("You lost to the computer " + playerScore + " to " + computerScore);
+//     } else {
+//         console.log("You tied the computer " + playerScore + " to " + computerScore);
+//     }
+// }
+
+// // game();
