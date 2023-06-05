@@ -20,7 +20,9 @@ h3 {
 }
 
 .button {
-    font-size: 25px;
+    padding: auto 32px;
+    border-style: none;
+    background-color: transparent;
 }
 
 
