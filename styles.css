@@ -1,0 +1,39 @@
+body {
+    background-color: #d8ccb4;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 52px;
+    gap: 25px;
+}
+
+.button {
+    font-size: 25px;
+}
+
+
+#results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#newGame {
+    display: flex;
+    margin: 32px auto;
+    justify-content: center;
+    align-items: center;
+}

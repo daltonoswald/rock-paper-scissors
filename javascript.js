@@ -12,6 +12,14 @@ const gameOver = () => {
     document.getElementById("rock").disabled = true;
     document.getElementById("paper").disabled = true;
     document.getElementById("scissors").disabled = true;
+
+    const newGame = document.createElement('button');
+    newGame.innerText = 'Play again!';
+    newGame.id = 'newGame';
+    newGame.addEventListener('click', () => {
+    window.location.reload();
+    });
+    document.body.appendChild(newGame);
 };
 
 function getComputerChoice() {
@@ -74,6 +82,8 @@ function playRound(playerSelection) {
     }
     document.getElementById('results').innerHTML = results;
 }
+
+
 
 
 // function game() {
